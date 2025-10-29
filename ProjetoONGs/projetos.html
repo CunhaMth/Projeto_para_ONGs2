@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ONGHub - Projetos Sociais</title>
+  <link rel="stylesheet" href="assets/reset.css" />
+  <link rel="stylesheet" href="assets/variables.css" />
+  <link rel="stylesheet" href="assets/typography.css" />
+  <link rel="stylesheet" href="assets/flexbox.css" />
+  <link rel="stylesheet" href="assets/grid.css" />
+  <link rel="stylesheet" href="assets/main-layout.css" />
+  <link rel="stylesheet" href="assets/buttons.css" />
+  <link rel="stylesheet" href="assets/cards.css" />
+  <link rel="stylesheet" href="assets/forms.css" />
+  <link rel="stylesheet" href="assets/navigation.css" />
+  <link rel="stylesheet" href="assets/main.css" />
+  <link rel="stylesheet" href="assets/responsive.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .card:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .btn-secondary {
+      transition: background-color 0.3s, transform 0.3s;
+      animation: pulse 2s infinite;
+    }
+    .btn-secondary:hover {
+      transform: scale(1.1);
+      background-color: #6a1b9a; /* Cor mais viva no hover */
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .hero-section {
+      background: linear-gradient(135deg, #6a1b9a, #ab47bc); /* Gradiente vivo */
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      animation: gradientShift 5s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+      margin-bottom: 1rem;
+    }
+    /* Partículas para fundo vivo (folhas caindo) */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #ab47bc;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body class="app-body">
+
+  <div class="app-container">
+    <header class="header">
+      <div class="logo">ONGHub</div>
+      <nav style="display: flex; gap: 1rem; margin-left: auto;">
+    <a href="index.html" class="btn-nav">Início</a>
+    <a href="projetos.html" class="btn-nav active">Projetos</a>
+    <a href="cadastro.html" class="btn-nav">Cadastro</a>
+    <a href="index.html" class="btn-nav">Dashboard</a>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <section class="hero-section">
+        <h1>Projetos Sociais</h1>
+        <p>Conheça nossas iniciativas e faça parte da mudança.</p>
+      </section>
+
+      <div class="cards">
+        <div class="card">
+          <img src="https://www.wfpusa.org/wp-content/uploads/2025/06/Angela_Brazil_Mastercard-e1648664491702.jpg" alt="Distribuição de cestas básicas para famílias vulneráveis">
+          <h3>Alimentação Solidária</h3>
+          <p>Distribuição de cestas básicas para famílias em vulnerabilidade.</p>
+          <a href="#" class="btn-secondary">Saiba Mais</a>
+        </div>
+        <div class="card">
+          <img src="https://www.readingrockets.org/sites/default/files/styles/card_image_mobile_1x/public/2023-04/read-for-the-record_0.jpg?itok=MkY1vC3Z" alt="Aulas de reforço para crianças e jovens">
+          <h3>Educação para Todos</h3>
+          <p>Aulas de reforço e alfabetização para crianças e jovens.</p>
+          <a href="#" class="btn-secondary">Saiba Mais</a>
+        </div>
+        <div class="card">
+          <img src="https://www.ferris.edu/news/archive/2025/april/images/ferris-state-nursing-hero.jpg" alt="Atendimentos médicos gratuitos em regiões carentes">
+          <h3>Saúde na Comunidade</h3>
+          <p>Atendimentos médicos gratuitos em regiões carentes.</p>
+          <a href="#" class="btn-secondary">Saiba Mais</a>
+        </div>
+      </div>
+
+      <div class="action-cards">
+        <div class="action-card">
+          <h3>Como Doar</h3>
+          <p>PIX, cartão ou transferência bancária.</p>
+          <button class="btn-primary">Doar Agora</button>
+        </div>
+        <div class="action-card">
+          <h3>Seja Voluntário</h3>
+          <p>Preencha o formulário e junte-se à causa!</p>
+          <a href="cadastro.html" class="btn-success">Cadastrar</a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Adicionar partículas para mais vida
+    function criarParticulas() {
+      for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        document.body.appendChild(particle);
+      }
+    }
+    criarParticulas();
+  </script>
+
+</body>
+</html>

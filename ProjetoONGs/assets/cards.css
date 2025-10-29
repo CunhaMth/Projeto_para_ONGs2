@@ -1,0 +1,21 @@
+.project-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s;
+}
+
+.project-card:hover { transform: translateY(-5px); }
+.project-card img { max-width: 100%; border-radius: 4px; }
+.project-card h3 { margin-bottom: var(--spacing-sm); color: var(--primary-color); }
+.project-card p { flex-grow: 1; }
+.project-card .btn { align-self: flex-start; }
+
+/* Responsivo: ajustar para telas menores */
+@media (max-width: 768px) {
+  .project-card { margin-bottom: var(--spacing-lg); }
+}

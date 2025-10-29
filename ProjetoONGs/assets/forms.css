@@ -1,0 +1,26 @@
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: var(--font-weight-bold);
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--neutral-medium);
+  border-radius: 4px;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Validação visual (ex.: erro em formulários de doação) */
+.form-group.error input { border-color: var(--error-color); }
+.form-group.success input { border-color: var(--success-color); }

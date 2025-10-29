@@ -1,0 +1,49 @@
+
+.nav {
+  background: var(--neutral-medium);
+  padding: var(--spacing-md);
+}
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-md);
+}
+.nav a {
+  text-decoration: none;
+  color: var(--neutral-dark);
+  padding: var(--spacing-sm);
+  transition: background 0.3s;
+  font-weight: var(--font-weight-bold);
+}
+.nav a:hover { background: var(--primary-color); color: white; }
+/* Dropdown para subseções (ex.: "Projetos" > "Reflorestamento", "Educação") */
+.dropdown {
+  position: relative;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+.dropdown:hover .dropdown-content { display: block; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background: var(--neutral-dark);
+  margin: 3px 0;
+}
+@media (max-width: 768px) {
+  .nav ul { display: none; flex-direction: column; }
+  .hamburger { display: flex; }
+  .nav.open ul { display: flex; }
+}

@@ -1,0 +1,18 @@
+/* Badges/tags para categorizar projetos da ONG (ex.: "Educação", "Saúde", "Meio Ambiente") */
+.badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--secondary-color);
+  color: white;
+  border-radius: 12px;
+  font-size: var(--font-size-sm);
+}
+
+.tag {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--neutral-medium);
+  color: var(--neutral-dark);
+  border-radius: 4px;
+  margin-right: var(--spacing-xs);
+}

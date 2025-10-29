@@ -1,0 +1,29 @@
+:root {
+  /* Paleta de cores para ONG (8+ cores: primárias verdes para sustentabilidade, secundárias azuis para confiança, neutras para simplicidade, acentos para ações) */
+  --primary-color: #28a745;      /* Verde primário (sustentabilidade, crescimento) */
+  --primary-dark: #1e7e34;       /* Verde escuro (para hover/foco) */
+  --secondary-color: #007bff;    /* Azul secundário (confiança, profissionalismo) */
+  --secondary-light: #6c757d;    /* Cinza secundário (neutralidade) */
+  --neutral-light: #f8f9fa;      /* Branco neutro (fundo limpo) */
+  --neutral-medium: #e9ecef;     /* Cinza claro (bordas, separadores) */
+  --neutral-dark: #343a40;       /* Cinza escuro (texto principal) */
+  --accent-color: #ffc107;       /* Amarelo acento (chamadas para ação, como doações) */
+  --error-color: #dc3545;        /* Vermelho erro (validações) */
+  --success-color: #28a745;      /* Verde sucesso (feedback positivo) */
+  /* Tipografia hierárquica (5+ tamanhos, otimizada para leitura em sites de ONG) */
+  --font-size-xs: 0.75rem;       /* 12px (notas pequenas) */
+  --font-size-sm: 0.875rem;      /* 14px (descrições) */
+  --font-size-base: 1rem;        /* 16px (texto padrão) */
+  --font-size-lg: 1.25rem;       /* 20px (subtítulos) */
+  --font-size-xl: 1.5rem;        /* 24px (títulos de seção) */
+  --font-size-xxl: 2rem;         /* 32px (títulos principais) */
+  --font-size-xxxl: 3rem;        /* 48px (hero/banner) */
+  --font-family: 'Arial', sans-serif; /* Fonte simples e acessível */
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  /* Espaçamento modular (baseado em 8px, para layouts limpos em sites de ONG) */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+}

@@ -1,0 +1,21 @@
+/* Breakpoints e media queries */
+@media (max-width: 480px) { /* xs */
+  body { font-size: var(--font-size-sm); }
+  .grid { gap: var(--spacing-sm); }
+}
+
+@media (max-width: 768px) { /* sm */
+  .grid { grid-template-columns: repeat(6, 1fr); }
+}
+
+@media (max-width: 1024px) { /* md */
+  .grid { grid-template-columns: repeat(8, 1fr); }
+}
+
+@media (max-width: 1200px) { /* lg */
+  .grid { grid-template-columns: repeat(10, 1fr); }
+}
+
+@media (max-width: 1440px) { /* xl */
+  .grid { grid-template-columns: repeat(12, 1fr); }
+}

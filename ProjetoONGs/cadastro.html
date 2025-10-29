@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ONGHub - Cadastro de Voluntário</title>
+
+  <link rel="stylesheet" href="assets/reset.css" />
+  <link rel="stylesheet" href="assets/variables.css" />
+  <link rel="stylesheet" href="assets/typography.css" />
+  <link rel="stylesheet" href="assets/flexbox.css" />
+  <link rel="stylesheet" href="assets/grid.css" />
+  <link rel="stylesheet" href="assets/main-layout.css" />
+  <link rel="stylesheet" href="assets/buttons.css" />
+  <link rel="stylesheet" href="assets/cards.css" />
+  <link rel="stylesheet" href="assets/forms.css" />
+  <link rel="stylesheet" href="assets/navigation.css" />
+  <link rel="stylesheet" href="assets/main.css" />
+  <link rel="stylesheet" href="assets/acessibility.css" />
+  <link rel="stylesheet" href="assets/responsive.css" />
+  <link rel="stylesheet" href="styles.css" /> 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"> <!-- Adicionado para ícones animados -->
+  <style>
+    /* Adições para mais vida: Animações no form e botão */
+    .container {
+      background: linear-gradient(135deg, #34a853 0%, #1a73e8 50%, #f9ab00 100%);
+      background-size: 200% 200%;
+      animation: gradientBreath 10s ease infinite;
+      position: relative;
+      overflow: hidden;
+      padding: 2rem;
+      border-radius: 12px;
+    }
+    @keyframes gradientBreath {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    label {
+      transition: transform 0.3s ease;
+    }
+    input:focus, select:focus {
+      border-color: #34a853;
+      box-shadow: 0 0 10px rgba(52, 168, 83, 0.5);
+      animation: fieldPulse 1s ease infinite;
+    }
+    @keyframes fieldPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.01); }
+    }
+    .btn-success {
+      position: relative;
+      overflow: hidden;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .btn-success:active::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300%;
+      height: 300%;
+      background: rgba(255,255,255,0.5);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: ripple 0.6s ease;
+    }
+    @keyframes ripple {
+      to { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+    }
+    .animated-icon {
+      font-size: 2rem;
+      color: #34a853;
+      animation: growShrink 1.5s ease infinite;
+      margin-bottom: 1rem;
+    }
+    @keyframes growShrink {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    /* Partículas para fundo vivo */
+    .particle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #f9ab00;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      animation: fall 5s linear infinite;
+      z-index: -1;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+    /* Imagem temática */
+    .hero-image {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">ONGHub</div>
+    <nav style="display: flex; gap: 1rem; margin-left: auto;">
+    <a href="index.html" class="btn-nav">Início</a>
+    <a href="projetos.html" class="btn-nav active">Projetos</a>
+    <a href="cadastro.html" class="btn-nav">Cadastro</a>
+    <a href="index.html" class="btn-nav">Dashboard</a>
+</nav>
+  </header>
+
+  <main class="container">
+    <img src="https://i0.wp.com/umasulamericana.com/wp-content/uploads/2022/04/Como-ser-voluntario-em-ONGs-na-Africa-e-outros-lugares-do-mundo.jpg?resize=1024%2C720&ssl=1" alt="Voluntário ajudando comunidade" class="hero-image">
+    <h1>Cadastro de Voluntário</h1>
+    <i class="fas fa-seedling animated-icon"></i> <!-- Ícone animado para "vida" -->
+
+    <form id="cadastro-form" novalidate>
+      <fieldset>
+        <legend>Dados Pessoais</legend>
+
+        <label>
+          Nome Completo *
+          <input type="text" name="nome" required minlength="3" />
+        </label>
+
+        <label>
+          E-mail *
+          <input type="email" name="email" required />
+        </label>
+
+        <label>
+          CPF *
+          <input type="text" name="cpf" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00" />
+        </label>
+
+        <label>
+          Telefone *
+          <input type="tel" name="telefone" required placeholder="(00) 00000-0000" />
+        </label>
+
+        <label>
+          Data de Nascimento *
+          <input type="date" name="nascimento" required max="2010-01-01" />
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Endereço</legend>
+
+        <label>
+          CEP *
+          <input type="text" name="cep" required placeholder="00000-000" />
+        </label>
+
+        <label>
+          Endereço
+          <input type="text" name="endereco" />
+        </label>
+
+        <label>
+          Cidade
+          <input type="text" name="cidade" />
+        </label>
+
+        <label>
+          Estado
+          <select name="estado" required>
+  <option value="">Selecione</option>
+  <option value="AC">Acre</option>
+  <option value="AL">Alagoas</option>
+  <option value="AP">Amapá</option>
+  <option value="AM">Amazonas</option>
+  <option value="BA">Bahia</option>
+  <option value="CE">Ceará</option>
+  <option value="DF">Distrito Federal</option>
+  <option value="ES">Espírito Santo</option>
+  <option value="GO">Goiás</option>
+  <option value="MA">Maranhão</option>
+  <option value="MT">Mato Grosso</option>
+  <option value="MS">Mato Grosso do Sul</option>
+  <option value="MG">Minas Gerais</option>
+  <option value="PA">Pará</option>
+  <option value="PB">Paraíba</option>
+  <option value="PR">Paraná</option>
+  <option value="PE">Pernambuco</option>
+  <option value="PI">Piauí</option>
+  <option value="RJ">Rio de Janeiro</option>
+  <option value="RN">Rio Grande do Norte</option>
+  <option value="RS">Rio Grande do Sul</option>
+  <option value="RO">Rondônia</option>
+  <option value="RR">Roraima</option>
+  <option value="SC">Santa Catarina</option>
+  <option value="SP">São Paulo</option>
+  <option value="SE">Sergipe</option>
+  <option value="TO">Tocantins</option>
+          </select>
+        </label>
+      </fieldset>
+
+      <button type="submit" class="btn-success">Enviar Cadastro</button>
+    </form>
+  </main>
+
+  <script>
+    // BUSCA CEP AUTOMÁTICA
+document.querySelector('[name="cep"]').addEventListener('blur', (e) => {
+  const cep = e.target.value.replace(/\D/g, '');
+  if (cep.length !== 8) return;
+
+  fetch(`https://viacep.com.br/ws/${cep}/json/`)
+    .then(res => res.json())
+    .then(data => {
+      if (!data.erro) {
+        document.querySelector('[name="endereco"]').value = data.logradouro;
+        document.querySelector('[name="cidade"]').value = data.localidade;
+        document.querySelector('[name="estado"]').value = data.uf;
+      }
+    });
+
+});
+    document.querySelector('[name="cpf"]').addEventListener('input', (e) => {
+      let v = e.target.value.replace(/\D/g, '');
+      v = v.replace(/(\d{3})(\d)/, '$1.$2');
+      v = v.replace(/(\d{3})(\d)/, '$1.$2');
+      v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+      e.target.value = v;
+    });
+
+    document.querySelector('[name="telefone"]').addEventListener('input', (e) => {
+      let v = e.target.value.replace(/\D/g, '');
+      v = v.replace(/^(\d{2})(\d)/, '($1) $2');
+      v = v.replace(/(\d{5})(\d)/, '$1-$2');
+      e.target.value = v;
+    });
+
+    document.querySelector('[name="cep"]').addEventListener('input', (e) => {
+      let v = e.target.value.replace(/\D/g, '');
+      v = v.replace(/^(\d{5})(\d)/, '$1-$2');
+      e.target.value = v;
+    });
+
+    // Validação ao enviar
+    document.getElementById('cadastro-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Cadastro enviado com sucesso!');
+    });
+
+    // Adicionar partículas para mais vida
+    function criarParticulas() {
+      const container = document.querySelector('.container');
+      for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        container.appendChild(particle);
+      }
+    }
+    criarParticulas();
+  </script>
+</body>
+</html>

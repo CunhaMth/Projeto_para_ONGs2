@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ONGHub - Plataforma para ONGs</title>
+
+    <link rel="stylesheet" href="assets/reset.css" />
+
+    <link rel="stylesheet" href="assets/variables.css" />
+
+    <link rel="stylesheet" href="assets/typography.css" />
+
+    <link rel="stylesheet" href="assets/flexbox.css" />
+    <link rel="stylesheet" href="assets/grid.css" />
+    <link rel="stylesheet" href="assets/main-layout.css" />
+
+    <link rel="stylesheet" href="assets/buttons.css" />
+    <link rel="stylesheet" href="assets/cards.css" />
+    <link rel="stylesheet" href="assets/forms.css" />
+    <link rel="stylesheet" href="assets/feedback.css" />
+    <link rel="stylesheet" href="assets/badges-tags.css" />
+
+    <link rel="stylesheet" href="assets/navigation.css" />
+
+    <link rel="stylesheet" href="assets/main.css" />
+
+    <link rel="stylesheet" href="styles.css" /> 
+
+    <link rel="stylesheet" href="assets/acessibility.css" />
+    <link rel="stylesheet" href="assets/responsive.css" />
+</head>
+<body>
+
+<!-- TELA DE LOGIN -->
+<div id="login-screen" class="screen active">
+    <div class="login-container">
+        <div class="login-card">
+            <h2><i class="fas fa-heart"></i> ONGHub</h2>
+            <p>Entre com sua conta de administrador</p>
+            <form id="login-form">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" placeholder="Usuário" required />
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Senha" required />
+                </div>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-sign-in-alt"></i> Entrar
+                </button>
+            </form>
+            <p class="hint">Dica: usuário <strong>admin</strong> | senha <strong>ong123</strong></p>
+        </div>
+    </div>
+</div>
+
+<!-- TELA PRINCIPAL -->
+<div id="main-app" class="screen">
+    <header>
+        <div class="logo">
+            <header class="ong-header"></header>
+            <i class="fas fa-hands-helping"></i> ONGHub
+        </div>
+        <nav>
+  <a href="index.html">Início</a>
+  <a href="projetos.html">Projetos</a>
+  <a href="cadastro.html">Cadastro</a>
+  <a href="ONGs.html">Dashboard</a>
+    </nav>
+    </header>
+
+    <main id="content">
+        <!-- HOME -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <h1>Bem-vindo à <span>ONGHub</span></h1>
+                <p>Gerencie atividades, divulgue projetos, capte recursos e engaje voluntários com facilidade.</p>
+                <div class="hero-actions">
+                    <button onclick="abrirModalDoacao()" class="btn-hero primary">
+                        <i class="fas fa-heart"></i> Doar Agora
+                    </button>
+                    <button onclick="abrirModalVoluntario()" class="btn-hero secondary">
+                        <i class="fas fa-hands"></i> Ser Voluntário
+                    </button>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat"><span id="stat-projetos">0</span> Projetos</div>
+                <div class="stat"><span id="stat-doacoes">R$0</span> Doados</div>
+                <div class="stat"><span id="stat-voluntarios">0</span> Voluntários</div>
+            </div>
+        </section>
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="page">
+            <h2><i class="fas fa-tachometer-alt"></i> Dashboard de Atividades</h2>
+            <div class="card">
+                <form id="form-atividade" class="form-inline">
+                    <input type="text" placeholder="Descrição da tarefa" id="desc-atividade" required />
+                    <input type="date" id="data-atividade" required />
+                    <button type="submit" class="btn-small"><i class="fas fa-plus"></i></button>
+                </form>
+                <ul id="lista-atividades" class="list"></ul>
+            </div>
+        </section>
+
+        <!-- PROJETOS -->
+        <section id="projetos" class="page">
+            <h2><i class="fas fa-project-diagram"></i> Projetos</h2>
+            <div class="card">
+                <form id="form-projeto">
+                    <input type="text" id="nome-projeto" placeholder="Nome do Projeto" required />
+                    <textarea id="desc-projeto" placeholder="Descrição detalhada..." required></textarea>
+                    <button type="submit" class="btn-primary">Criar Projeto</button>
+                </form>
+                <div id="lista-projetos" class="grid"></div>
+            </div>
+        </section>
+
+        <!-- DOAÇÕES -->
+        <section id="doacoes" class="page">
+            <h2><i class="fas fa-donate"></i> Doações</h2>
+            <div class="card">
+                <div class="doacao-resumo">
+                    <h3>Total Arrecadado: <span id="total-doacoes">R$0,00</span></h3>
+                </div>
+                <form id="form-doacao">
+                    <input type="number" id="valor-doacao" placeholder="Valor em R$" min="1" step="0.01" required />
+                    <button type="submit" class="btn-primary">Doar Agora</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- VOLUNTÁRIOS -->
+        <section id="voluntarios" class="page">
+            <h2><i class="fas fa-users"></i> Voluntários</h2>
+            <div class="card">
+                <form id="form-voluntario" class="form-inline">
+                    <input type="text" id="nome-voluntario" placeholder="Seu nome" required />
+                    <input type="text" id="habilidades-voluntario" placeholder="Suas habilidades" required />
+                    <button type="submit" class="btn-small"><i class="fas fa-plus"></i></button>
+                </form>
+                <ul id="lista-voluntarios" class="list"></ul>
+            </div>
+        </section>
+    </main>
+</div>
+
+<!-- MODAIS -->
+<div id="modal-doacao" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="fecharModal('modal-doacao')">×</span>
+        <h3>Doar para a Causa</h3>
+        <form id="modal-form-doacao">
+            <input type="number" placeholder="Valor (R$)" min="1" step="0.01" required />
+            <button type="submit" class="btn-primary">Confirmar Doação</button>
+        </form>
+    </div>
+</div>
+
+<div id="modal-voluntario" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="fecharModal('modal-voluntario')">×</span>
+        <h3>Seja um Voluntário</h3>
+        <form id="modal-form-voluntario">
+            <input type="text" placeholder="Seu nome" required />
+            <input type="text" placeholder="Habilidades (ex: ensino, TI)" required />
+            <button type="submit" class="btn-primary">Inscrever-se</button>
+        </form>
+    </div>
+</div>
+
+<div id="modal-saiba-mais" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="fecharModal('modal-saiba-mais')">×</span>
+        <h3 id="saiba-mais-titulo">Detalhes do Projeto</h3>
+        <p id="saiba-mais-descricao"></p>
+    </div>
+</div>
+
+<script src="ONGs.js"></script>
+</body>
+</html>
